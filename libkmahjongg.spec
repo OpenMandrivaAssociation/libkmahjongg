@@ -1,6 +1,6 @@
 Name:		libkmahjongg
 Summary:	Library used for loading and rendering of Mahjongg tilesets
-Version:	4.11.4
+Version:	4.12.1
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -71,6 +71,9 @@ Headers files needed to build applications based on KMahjongg library.
 %makeinstall_std -C build
 
 %changelog
+* Tue Jan 14 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.12.1-1
+- New version 4.12.1
+
 * Wed Dec 04 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.4-1
 - New version 4.11.4
 
