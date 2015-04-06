@@ -45,7 +45,7 @@ Obsoletes:	%{mklibname kmahjongglib 4} < %{EVRD}
 Runtime library for KMahjongg.
 
 %files -n %{libkmahjongglib}
-%{_kde_libdir}/libKF5KMahjongglib.so.%{libkmahjongglib_major}*
+%{_libdir}/libKF5KMahjongglib.so.%{libkmahjongglib_major}*
 
 #-------------------------------------------------------------------------------
 
