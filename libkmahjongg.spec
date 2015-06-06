@@ -2,16 +2,14 @@
 Name:		libkmahjongg
 Summary:	Library used for loading and rendering of Mahjongg tilesets
 Version:	15.04.2
-Release:	1
+Release:	2
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
 URL:		http://games.kde.org/
-Source0:	ftp://ftp.kde.org/pub/kde/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	libkdegames-devel
 BuildRequires:	cmake(ECM)
-BuildRequires:	cmake
-BuildRequires:	ninja
 
 %description
 This package provides the library for loading and rendering of Mahjongg
@@ -68,10 +66,10 @@ Headers files needed to build applications based on KMahjongg library.
 
 %prep
 %setup -q
+%cmake_kde5
 
 %build
-%cmake -G Ninja
-ninja
+%ninja -C build
 
 %install
-DESTDIR="%{buildroot}" ninja -C build install
+%ninja_install -C build
