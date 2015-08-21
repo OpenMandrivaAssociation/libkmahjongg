@@ -8,8 +8,19 @@ Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
 URL:		http://games.kde.org/
 Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
-BuildRequires:	libkdegames-devel
+BuildRequires:	cmake
+BuildRequires:	ninja
 BuildRequires:	cmake(ECM)
+BuildRequires:	cmake(KF5Completion)
+BuildRequires:	cmake(KF5Config)
+BuildRequires:	cmake(KF5ConfigWidgets)
+BuildRequires:	cmake(KF5KDEGames)
+BuildRequires:	cmake(KF5I18n)
+BuildRequires:	cmake(KF5WidgetsAddons)
+BuildRequires:	cmake(Qt5Core)
+BuildRequires:	cmake(Qt5Gui)
+BuildRequires:	cmake(Qt5Svg)
+BuildRequires:	cmake(Qt5Widgets)
 
 %description
 This package provides the library for loading and rendering of Mahjongg
@@ -47,17 +58,19 @@ Runtime library for KMahjongg.
 
 #-------------------------------------------------------------------------------
 
-%package devel
+%define devname %mklibname kf5mahjongglib -d
+%package -n %{devname}
 Summary:	Headers files for KMahjongg library
 Group:		Development/KDE and Qt
 Conflicts:	kdegames4-devel < 1:4.9.80
 Requires:	libkdegames-devel
 Requires:	%{libkmahjongglib} = %{EVRD}
+%rename %{name}-devel
 
-%description devel
+%description -n %{devname}
 Headers files needed to build applications based on KMahjongg library.
 
-%files devel
+%files -n %{devname}
 %{_libdir}/libKF5KMahjongglib.so
 %{_libdir}/cmake/KF5KMahjongglib
 %{_includedir}/*
