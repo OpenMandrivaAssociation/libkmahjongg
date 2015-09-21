@@ -1,8 +1,8 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Name:		libkmahjongg
 Summary:	Library used for loading and rendering of Mahjongg tilesets
-Version:	15.08.0
-Release:	2
+Version:	15.08.1
+Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
@@ -14,6 +14,7 @@ BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5Completion)
 BuildRequires:	cmake(KF5Config)
 BuildRequires:	cmake(KF5ConfigWidgets)
+BuildRequires:	cmake(KF5CoreAddons)
 BuildRequires:	cmake(KF5KDEGames)
 BuildRequires:	cmake(KF5I18n)
 BuildRequires:	cmake(KF5WidgetsAddons)
@@ -21,6 +22,7 @@ BuildRequires:	cmake(Qt5Core)
 BuildRequires:	cmake(Qt5Gui)
 BuildRequires:	cmake(Qt5Svg)
 BuildRequires:	cmake(Qt5Widgets)
+BuildRequires:	cmake(Qt5Test)
 
 %description
 This package provides the library for loading and rendering of Mahjongg
