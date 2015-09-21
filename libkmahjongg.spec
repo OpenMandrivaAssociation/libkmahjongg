@@ -2,7 +2,7 @@
 Name:		libkmahjongg
 Summary:	Library used for loading and rendering of Mahjongg tilesets
 Version:	15.08.1
-Release:	1
+Release:	2
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
@@ -50,7 +50,6 @@ Common files needed by KMahjongg, Kajongg and KShisen.
 Summary:	Runtime library for KMahjongg
 Group:		System/Libraries
 Requires:	kmahjongglib
-Obsoletes:	%{mklibname kmahjongglib 4} < %{EVRD}
 
 %description -n %{libkmahjongglib}
 Runtime library for KMahjongg.
