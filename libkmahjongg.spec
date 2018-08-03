@@ -5,7 +5,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Name:		libkmahjongg
 Summary:	Library used for loading and rendering of Mahjongg tilesets
-Version:	 18.07.80
+Version:	 18.07.90
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
