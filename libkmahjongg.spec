@@ -5,7 +5,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Name:		libkmahjongg
 Summary:	Library used for loading and rendering of Mahjongg tilesets
-Version:	19.04.3
+Version:	19.07.80
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -41,7 +41,7 @@ BuildArch:	noarch
 Common files needed by KMahjongg, Kajongg and KShisen.
 
 %files -n kmahjongglib -f libkmahjongg5.lang
-%{_sysconfdir}/xdg/libkmahjongg.categories
+%{_datadir}/qlogging-categories5/libkmahjongg.categories
 %{_datadir}/kmahjongglib
 
 #-------------------------------------------------------------------------------
