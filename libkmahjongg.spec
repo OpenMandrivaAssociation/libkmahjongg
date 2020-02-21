@@ -6,7 +6,7 @@
 Name:		libkmahjongg
 Summary:	Library used for loading and rendering of Mahjongg tilesets
 Version:	19.12.2
-Release:	1
+Release:	2
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
