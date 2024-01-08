@@ -61,7 +61,7 @@ Runtime library for KMahjongg.
 %package -n %{devname}
 Summary:	Headers files for KMahjongg library
 Group:		Development/KDE and Qt
-Requires:	cmake(KF6KDEGames)
+Requires:	cmake(KDEGames6)
 Requires:	%{libname} = %{EVRD}
 %rename %{name}-devel
 
