@@ -1,13 +1,12 @@
 %define major 6
-%define libname %mklibname KF6KMahjongglib %{major}
-%define devname %mklibname KF6KMahjongglib -d
+%define libname %mklibname KMahjongg6 %{major}
+%define devname %mklibname KMahjongg6 -d
 
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Name:		plasma6-libkmahjongg
 Summary:	Library used for loading and rendering of Mahjongg tilesets
 Version:	24.01.85
 Release:	1
-Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
 URL:		http://games.kde.org/
@@ -17,7 +16,7 @@ BuildRequires:	cmake(KF6Completion)
 BuildRequires:	cmake(KF6Config)
 BuildRequires:	cmake(KF6ConfigWidgets)
 BuildRequires:	cmake(KF6CoreAddons)
-BuildRequires:	cmake(KF6KDEGames)
+BuildRequires:	cmake(KDEGames6)
 BuildRequires:	cmake(KF6I18n)
 BuildRequires:	cmake(KF6WidgetsAddons)
 BuildRequires:	cmake(Qt6Core)
@@ -50,37 +49,34 @@ Common files needed by KMahjongg, Kajongg and KShisen.
 Summary:	Runtime library for KMahjongg
 Group:		System/Libraries
 Requires:	kmahjongglib = %{EVRD}
-Obsoletes:	%{mklibname kf6kmahjongglib 6} < 1:16.12.0
 
 %description -n %{libname}
 Runtime library for KMahjongg.
 
 %files -n %{libname}
-%{_libdir}/libKF6KMahjongglib.so.%{major}*
+%{_libdir}/libKMahjongg6.so.%{major}*
 
 #-------------------------------------------------------------------------------
 
 %package -n %{devname}
 Summary:	Headers files for KMahjongg library
 Group:		Development/KDE and Qt
-Conflicts:	kdegames4-devel < 1:4.9.80
 Requires:	cmake(KF6KDEGames)
 Requires:	%{libname} = %{EVRD}
-Obsoletes:	%{mklibname kf6kmahjongglib -d} < 1:16.12.0
 %rename %{name}-devel
 
 %description -n %{devname}
 Headers files needed to build applications based on KMahjongg library.
 
 %files -n %{devname}
-%{_libdir}/libKF6KMahjongglib.so
-%{_libdir}/cmake/KF6KMahjongglib
+%{_libdir}/libKMahjongg6.so
+%{_libdir}/cmake/KMahjongglib6
 %{_includedir}/*
 
 #------------------------------------------------------------------------------
 
 %prep
-%autosetup -p1
+%autosetup -p1 -n libkmahjongg-%{version}
 %cmake \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
 	-G Ninja
