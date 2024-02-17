@@ -1,3 +1,6 @@
+%define git 20240217
+%define gitbranch release/24.02
+%define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 %define major 6
 %define libname %mklibname KMahjongg6 %{major}
 %define devname %mklibname KMahjongg6 -d
@@ -5,12 +8,16 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Name:		plasma6-libkmahjongg
 Summary:	Library used for loading and rendering of Mahjongg tilesets
-Version:	24.01.95
-Release:	1
+Version:	24.01.96
+Release:	%{?git:0.%{git}.}1
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
 URL:		http://games.kde.org/
+%if 0%{?git:1}
+Source0:	https://invent.kde.org/games/libkmahjongg/-/archive/%{gitbranch}/libkmahjongg-%{gitbranchd}.tar.bz2#/libkmahjongg-%{git}.tar.bz2
+%else
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/libkmahjongg-%{version}.tar.xz
+%endif
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF6Completion)
 BuildRequires:	cmake(KF6Config)
@@ -76,7 +83,7 @@ Headers files needed to build applications based on KMahjongg library.
 #------------------------------------------------------------------------------
 
 %prep
-%autosetup -p1 -n libkmahjongg-%{version}
+%autosetup -p1 -n libkmahjongg-%{?git:%{gitbranchd}}%{!?git:%{version}}
 %cmake \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
 	-G Ninja
