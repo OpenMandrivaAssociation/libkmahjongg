@@ -38,24 +38,24 @@ tilesets and associated backgrounds, used by KMahjongg, Kajongg and KShisen.
 
 #------------------------------------------------------------------------------
 
-%package -n kmahjongglib
+%package -n plasma6-kmahjongglib
 Summary:	Common files needed by KMahjongg, Kajongg and KShisen
 Group:		Games/Other
 BuildArch:	noarch
 
-%description -n kmahjongglib
+%description -n plasma6-kmahjongglib
 Common files needed by KMahjongg, Kajongg and KShisen.
 
-%files -n kmahjongglib -f libkmahjongg6.lang
+%files -n plasma6-kmahjongglib -f libkmahjongg6.lang
 %{_datadir}/qlogging-categories6/libkmahjongg.categories
-%{_datadir}/kmahjongglib
+%{_datadir}/plasma6-kmahjongglib
 
 #-------------------------------------------------------------------------------
 
 %package -n %{libname}
 Summary:	Runtime library for KMahjongg
 Group:		System/Libraries
-Requires:	kmahjongglib = %{EVRD}
+Requires:	plasma6-kmahjongglib = %{EVRD}
 
 %description -n %{libname}
 Runtime library for KMahjongg.
