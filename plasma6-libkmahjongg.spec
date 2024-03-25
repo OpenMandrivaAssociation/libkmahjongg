@@ -48,7 +48,7 @@ Common files needed by KMahjongg, Kajongg and KShisen.
 
 %files -n plasma6-kmahjongglib -f libkmahjongg6.lang
 %{_datadir}/qlogging-categories6/libkmahjongg.categories
-%{_datadir}/plasma6-kmahjongglib
+%{_datadir}/kmahjongglib
 
 #-------------------------------------------------------------------------------
 
