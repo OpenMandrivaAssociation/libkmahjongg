@@ -8,7 +8,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Name:		plasma6-libkmahjongg
 Summary:	Library used for loading and rendering of Mahjongg tilesets
-Version:	24.05.2
+Version:	24.08.0
 Release:	%{?git:0.%{git}.}1
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
@@ -48,6 +48,7 @@ Common files needed by KMahjongg, Kajongg and KShisen.
 
 %files -n plasma6-kmahjongglib -f libkmahjongg6.lang
 %{_datadir}/qlogging-categories6/libkmahjongg.categories
+%{_datadir}/qlogging-categories6/libkmahjongg.renamecategories
 %{_datadir}/kmahjongglib
 
 #-------------------------------------------------------------------------------
