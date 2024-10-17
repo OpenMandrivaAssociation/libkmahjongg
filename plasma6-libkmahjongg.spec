@@ -12,7 +12,7 @@ Version:	24.08.2
 Release:	%{?git:0.%{git}.}1
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
-URL:		http://games.kde.org/
+URL:		https://games.kde.org/
 %if 0%{?git:1}
 Source0:	https://invent.kde.org/games/libkmahjongg/-/archive/%{gitbranch}/libkmahjongg-%{gitbranchd}.tar.bz2#/libkmahjongg-%{git}.tar.bz2
 %else
