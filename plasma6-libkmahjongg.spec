@@ -8,7 +8,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Name:		plasma6-libkmahjongg
 Summary:	Library used for loading and rendering of Mahjongg tilesets
-Version:	24.08.2
+Version:	24.08.3
 Release:	%{?git:0.%{git}.}1
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
