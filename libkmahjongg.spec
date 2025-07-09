@@ -6,7 +6,7 @@
 %define devname %mklibname KMahjongg6 -d
 
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
-Name:		plasma6-libkmahjongg
+Name:		libkmahjongg
 Summary:	Library used for loading and rendering of Mahjongg tilesets
 Version:	25.04.0
 Release:	%{?git:0.%{git}.}1
