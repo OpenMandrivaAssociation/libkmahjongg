@@ -8,7 +8,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Name:		libkmahjongg
 Summary:	Library used for loading and rendering of Mahjongg tilesets
-Version:	25.04.0
+Version:	25.04.3
 Release:	%{?git:0.%{git}.}1
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
@@ -32,21 +32,27 @@ BuildRequires:	cmake(Qt6Svg)
 BuildRequires:	cmake(Qt6Widgets)
 BuildRequires:	cmake(Qt6Test)
 
+%rename plasma6-libkmahjongg
+
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+
 %description
 This package provides the library for loading and rendering of Mahjongg
 tilesets and associated backgrounds, used by KMahjongg, Kajongg and KShisen.
 
 #------------------------------------------------------------------------------
 
-%package -n plasma6-kmahjongglib
+%package -n kmahjongglib
 Summary:	Common files needed by KMahjongg, Kajongg and KShisen
 Group:		Games/Other
 BuildArch:	noarch
+%rename plasma6-kmahjongglib
 
-%description -n plasma6-kmahjongglib
+%description -n kmahjongglib
 Common files needed by KMahjongg, Kajongg and KShisen.
 
-%files -n plasma6-kmahjongglib -f libkmahjongg6.lang
+%files -n kmahjongglib -f %{name}.lang
 %{_datadir}/qlogging-categories6/libkmahjongg.categories
 %{_datadir}/qlogging-categories6/libkmahjongg.renamecategories
 %{_datadir}/kmahjongglib
@@ -80,18 +86,3 @@ Headers files needed to build applications based on KMahjongg library.
 %{_libdir}/libKMahjongg6.so
 %{_libdir}/cmake/KMahjongglib6
 %{_includedir}/*
-
-#------------------------------------------------------------------------------
-
-%prep
-%autosetup -p1 -n libkmahjongg-%{?git:%{gitbranchd}}%{!?git:%{version}}
-%cmake \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja
-
-%build
-%ninja -C build
-
-%install
-%ninja_install -C build
-%find_lang libkmahjongg6
